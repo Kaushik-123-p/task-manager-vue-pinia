@@ -11,7 +11,7 @@
       >
       <i
         class="material-icons hover:bg-gray-600 hover:text-gray-100 transition-all duration-300 active:text-red-500"
-        :class="{ active: task.isFav }"
+        :class="task.isFav ? 'text-red-500' : 'text-gray-400'"
         @click="taskStore.toggleFav(task.id)"
         >favorite</i
       >

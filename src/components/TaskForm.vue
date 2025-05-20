@@ -10,9 +10,9 @@
       class="p-3 rounded-lg text-gray-500 text-lg w-80 sm:w-full"
     />
     <button
-      class="bg-yellow-400 p-3 font-sans rounded-lg cursor-pointer text-lg"
+      class="bg-yellow-400 p-3 font-semibold rounded-lg cursor-pointer text-lg"
     >
-      Add Task
+      Add
     </button>
   </form>
 </template>
