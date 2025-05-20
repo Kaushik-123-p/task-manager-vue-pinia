@@ -1,32 +1,27 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "play with Vue",
       "isFav": true
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "play with Pinia",
       "isFav": false
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "play with Vite",
       "isFav": true
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "play with Tailwind",
       "isFav": false
     },
     {
-      "id": 5,
-      "title": "play with Vue Router",
-      "isFav": true
-    },
-    {
-      "id": 6,
+      "id": "6",
       "title": "play with Vue Devtools",
       "isFav": false
     }

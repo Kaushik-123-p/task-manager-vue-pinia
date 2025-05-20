@@ -25,26 +25,53 @@ export const useTaskStore = defineStore("taskStore", {
   actions: {
     async getTasks() {
       this.loading = true;
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setTimeout(async () => {
-        const res = await fetch("http://localhost:3000/tasks");
-        const data = await res.json();
+      const res = await fetch("http://localhost:3000/tasks");
+      const data = await res.json();
 
-        this.tasks = data;
-        this.loading = false;
-      }, 1000);
+      this.tasks = data;
+      this.loading = false;
     },
-    addTask(task) {
-      return this.tasks.push(task);
+    async addTask(task) {
+      this.tasks.push(task);
+
+      const res = await fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        body: JSON.stringify(task),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!res.ok) {
+        console.log("Error with request");
+      }
     },
-    deleteTask(id) {
+    async deleteTask(id) {
       this.tasks = this.tasks.filter((task) => {
         return task.id !== id;
       });
+
+      const res = await fetch("http://localhost:3000/tasks/" + id, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) {
+        console.log("Error with request");
+      }
     },
-    toggleFav(id) {
+    async toggleFav(id) {
       const task = this.tasks.find((task) => task.id === id);
       task.isFav = !task.isFav;
+
+      const res = await fetch("http://localhost:3000/tasks/" + id, {
+        method: "PATCH",
+        body: JSON.stringify({ isFav: task.isFav }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (!res.ok) {
+        console.log("Error with request");
+      }
     },
   },
 });

@@ -34,7 +34,7 @@
       <!-- loading -->
       <div class="px-10">
         <div
-          class="loading max-w-screen-sm rounded-lg border-2 border-yellow-500 bg-yellow-400 text-gray-800 text-xl font-semibold py-2 text-center my-7 mx-auto"
+          class="loading max-w-screen-sm rounded-lg border-2 border-yellow-500 bg-yellow-400 text-gray-600 text-xl font-semibold py-2 text-center my-7 mx-auto"
           v-if="taskStore.loading"
         >
           Loading tasks...
