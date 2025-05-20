@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "play with Vue",
-      "isFav": false
+      "isFav": true
     },
     {
       "id": "2",
@@ -18,12 +18,12 @@
     {
       "id": "4",
       "title": "play with Tailwind",
-      "isFav": true
+      "isFav": false
     },
     {
-      "id": "6",
+      "id": "5",
       "title": "play with Vue Devtools",
-      "isFav": false
+      "isFav": true
     }
   ]
 }

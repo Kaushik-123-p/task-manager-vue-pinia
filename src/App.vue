@@ -56,7 +56,7 @@
 
       <!-- fav task -->
       <div
-        class="task-list max-w-screen-md my-5 mx-auto px-2"
+        class="task-list w-96 lg:w-5/12 my-5 mx-auto px-2"
         v-if="filter === 'fav'"
       >
         <p class="px-2">You Have {{ favCount }} fav tasks left to do</p>
