@@ -1,29 +1,37 @@
-# vue-pinia-tasks
+# Task Manager with Vue 3 & Pinia
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, lightweight task management application built with Vue 3, Pinia, and Vite. This app allows users to create, update, and delete tasks, providing a seamless experience for managing daily to-dos.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Features
 
-## Customize configuration
+- **Task CRUD Operations**: Create, read, update, and delete tasks effortlessly.
+- **State Management with Pinia**: Utilizes Pinia for efficient and reactive state management.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Lightweight and Fast**: Built with Vite for quick development and fast builds.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🛠️ Technologies Used
 
-```sh
-npm install
-```
+- **Frontend**: Vue 3
+- **State Management**: Pinia
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS (assumed)
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
-```
+## 📦 Project Setup
 
-### Compile and Minify for Production
+1. Clone the Repository
+   git clone https://github.com/Kaushik-123-p/task-manager-vue-pinia.git
+   cd task-manager-vue-pinia
 
-```sh
-npm run build
-```
+2. Install Dependencies
+   npm install
+
+3. Run the Development Server
+   npm run dev
+
+   Visit http://localhost:3000 in your browser to view the application.
