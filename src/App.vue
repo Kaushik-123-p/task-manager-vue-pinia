@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main>
+    <main class="flex flex-col justify-center">
       <!-- header -->
       <header
         class="text-center bg-gray-200 pt-5 flex justify-center items-center"
@@ -35,7 +35,7 @@
       <div class="px-10">
         <div
           class="loading max-w-screen-sm rounded-lg border-2 border-yellow-500 bg-yellow-400 text-gray-600 text-xl font-semibold py-2 text-center my-7 mx-auto"
-          v-if="taskStore.loading"
+          v-if="loading"
         >
           Loading tasks...
         </div>
@@ -45,11 +45,11 @@
 
       <!-- all task -->
       <div
-        class="task-list max-w-screen-md my-5 mx-auto px-2"
+        class="task-list w-96 lg:w-5/12 my-5 mx-auto pr-4"
         v-if="filter === 'all'"
       >
-        <p class="px-2">You Have {{ taskStore.totalCount }} tasks left to do</p>
-        <div v-for="task in taskStore.tasks" :key="task.id">
+        <p class="px-2">You Have {{ totalCount }} tasks left to do</p>
+        <div v-for="task in tasks" :key="task.id">
           <TaskDetails :task="task" />
         </div>
       </div>
@@ -59,13 +59,18 @@
         class="task-list max-w-screen-md my-5 mx-auto px-2"
         v-if="filter === 'fav'"
       >
-        <p class="px-2">
-          You Have {{ taskStore.favCount }} fav tasks left to do
-        </p>
-        <div v-for="task in taskStore.favs" :key="task.id">
+        <p class="px-2">You Have {{ favCount }} fav tasks left to do</p>
+        <div v-for="task in favs" :key="task.id">
           <TaskDetails :task="task" />
         </div>
       </div>
+
+      <button
+        @click="taskStore.$reset"
+        class="max-w-screen-md my-3 mx-auto bg-yellow-400 hover:bg-yellow-500 hover:text-white py-3 px-14 font-semibold rounded-lg cursor-pointer text-lg"
+      >
+        RESET
+      </button>
     </main>
   </div>
 </template>
@@ -75,6 +80,7 @@ import { useTaskStore } from "./store/TaskStore";
 import TaskDetails from "./components/TaskDetails.vue";
 import { ref } from "vue";
 import TaskForm from "./components/TaskForm.vue";
+import { storeToRefs } from "pinia";
 
 export default {
   components: { TaskDetails, TaskForm },
@@ -82,12 +88,15 @@ export default {
   setup() {
     const taskStore = useTaskStore();
 
+    const { tasks, loading, favs, favCount, totalCount } =
+      storeToRefs(taskStore);
+
     // eatch data
     taskStore.getTasks();
 
     const filter = ref("all");
 
-    return { taskStore, filter };
+    return { taskStore, filter, tasks, loading, favs, favCount, totalCount };
   },
 };
 </script>

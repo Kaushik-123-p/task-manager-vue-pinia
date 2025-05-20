@@ -7,10 +7,10 @@
       type="text"
       placeholder="i need to add ..."
       v-model="newTask"
-      class="p-3 rounded-lg text-gray-500 text-lg w-80 sm:w-full"
+      class="p-3 rounded-lg text-gray-500 text-lg w-80 sm:w-full focus:outline-yellow-400"
     />
     <button
-      class="bg-yellow-400 p-3 font-semibold rounded-lg cursor-pointer text-lg"
+      class="bg-yellow-400 hover:bg-yellow-500 hover:text-white p-3 font-semibold rounded-lg cursor-pointer text-lg"
     >
       Add
     </button>
