@@ -27,16 +27,17 @@ export const useTaskStore = defineStore("taskStore", {
       this.loading = true;
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      const res = await fetch("http://localhost:3000/tasks");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`);
       const data = await res.json();
 
       this.tasks = data;
       this.loading = false;
     },
+
     async addTask(task) {
       this.tasks.push(task);
 
-      const res = await fetch("http://localhost:3000/tasks", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks`, {
         method: "POST",
         body: JSON.stringify(task),
         headers: { "Content-Type": "application/json" },
@@ -46,12 +47,11 @@ export const useTaskStore = defineStore("taskStore", {
         console.log("Error with request");
       }
     },
-    async deleteTask(id) {
-      this.tasks = this.tasks.filter((task) => {
-        return task.id !== id;
-      });
 
-      const res = await fetch("http://localhost:3000/tasks/" + id, {
+    async deleteTask(id) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
+
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
         method: "DELETE",
       });
 
@@ -59,11 +59,12 @@ export const useTaskStore = defineStore("taskStore", {
         console.log("Error with request");
       }
     },
+
     async toggleFav(id) {
       const task = this.tasks.find((task) => task.id === id);
       task.isFav = !task.isFav;
 
-      const res = await fetch("http://localhost:3000/tasks/" + id, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
         method: "PATCH",
         body: JSON.stringify({ isFav: task.isFav }),
         headers: { "Content-Type": "application/json" },
